@@ -5,20 +5,20 @@ import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, Alert, B
 export default function App() {
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[containerStyle, styles.container ]}>
      <Button 
-     title="click me" onPress={() => Alert.alert("Custom Alert", "Is it easy to code in React Native?", [
-       {text: "yes", onPress: () => console.log("yes clicked")},
-       {text: "No", onPress: () => console.log("no clicked")}
-     ])}/>
+     title="click me" onPress={() => 
+     Alert.alert("Custom prompt", "Is it easy to code in React Native?", [{text: 'yes', onPress: () => console.log("pressed")}])}/>
     </SafeAreaView>
   );
 }
 
+const containerStyle = { backgroundColor: "red" };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "yellow",
     alignItems: "center",
     justifyContent: "center",
   },
