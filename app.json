@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "DoneWithIt",
+    "name": "Done With It",
     "slug": "DoneWithIt",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,6 +21,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "A marketplace for selling the stuff you don't need "
   }
 }

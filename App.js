@@ -1,12 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
 
 export default function App() {
-  const handlePress = () => console.log("txt pressed"); 
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} onPress={handlePress}>Hello React Native! A really really long text. I want to make this text so long that the world can see it from nowhere nearly here </Text>
+      <Text>Hello React Native! </Text>
+      <Image source={require('./assets/icon.png')}/>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
@@ -15,7 +16,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "dodgerblue",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
