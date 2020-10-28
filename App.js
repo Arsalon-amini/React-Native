@@ -7,7 +7,7 @@ export default function App() {
     <View style={{ backgroundColor: '#fff',  flex: 1,
      flexDirection: "row", //primary axis - horizontal
      justifyContent: "center", //primary axis (center)
-     alignItems:"flex-end" //secondary axis - vertical 
+     alignItems:"center" //secondary axis - vertical 
      }}
      > 
 
@@ -15,13 +15,17 @@ export default function App() {
       style={{
         backgroundColor: 'dodgerblue', 
         width: 100, 
-        height: 100, }}
+        height: 100, 
+        alignSelf: "flex-start"
+      }}
         />
      <View 
       style={{
         backgroundColor: 'gold', 
         width: 100, 
-        height: 200, }}
+        height: 200,
+        alignSelf: "flex-end"
+       }}
         />
           <View 
       style={{
