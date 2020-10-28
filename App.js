@@ -15,7 +15,8 @@ export default function App() {
      backgroundColor: "dodgerblue",
      width: 100,
      height: 100,
-     padding: 25,
+     paddingLeft: 5,
+     paddingVertical: 45
    }}
    >
      <View
@@ -25,9 +26,16 @@ export default function App() {
        height: 50
      }}
      ></View>
-
-
    </View>
+
+   <View
+     style={{
+       backgroundColor: "tomato",
+       width: 100,
+       height: 100,
+       margin: 20
+     }}
+     ></View>
    </View>
   )
 }
