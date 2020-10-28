@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, StyleSheet, Platform } from 'react-native'; //imrn shortcut (import react-native)
+import { Text, StyleSheet, Platform } from 'react-native'; 
 
-//rsf shortcut (react stateless functional)
+
 function AppText({children}) {
     return (
         <Text style={styles.text}>
@@ -10,11 +10,19 @@ function AppText({children}) {
     );
 }
 
-//rns (react native style)
 const styles = StyleSheet.create({
     text: {
-        fontSize: 18,
-        fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir"
+        color: "tomato",
+        ...Platform.select({
+            ios: {
+                fontSize: 20,
+                fontFamily: "Avenir"
+            },
+            android: {
+                fontSize: 18,
+                fontFamily: "Roboto"
+            }
+        })
     }
 })
 
