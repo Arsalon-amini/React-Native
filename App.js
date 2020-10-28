@@ -15,12 +15,12 @@ export default function App() {
      backgroundColor: "dodgerblue",
      width: 100,
      height: 100,
-     borderWidth: 10,
-     borderColor: "royalblue",
-     borderRadius: 50 //round edges (1/2 width makes circle)
+     shadowColor: "grey",
+     shadowOffset: { width: 10, height: 10 } , //position or angle of shadow
+     shadowOpacity: 1 //how dark shadow is 
+     
    }}
    ></View>
-
    </View>
   )
 }
