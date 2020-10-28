@@ -7,7 +7,7 @@ export default function App() {
    style={{
      flex: 1, //default "column" y-axis align
      justifyContent: "center", //align items on main axis in center (y-axis)
-     alignItems: "center" //align items along x-axis (secondary)
+     alignItems: "center", //align items along x-axis (secondary)
    }}
    > 
    <View
@@ -15,12 +15,19 @@ export default function App() {
      backgroundColor: "dodgerblue",
      width: 100,
      height: 100,
-     //shadowColor: "grey",
-     //shadowOffset: { width: 10, height: 10 } , //position or angle of shadow
-     //shadowOpacity: 1, //how dark shadow is 
-     elevation: 30
+     padding: 25,
    }}
-   ></View>
+   >
+     <View
+     style={{
+       backgroundColor: "gold",
+       width: 50,
+       height: 50
+     }}
+     ></View>
+
+
+   </View>
    </View>
   )
 }
