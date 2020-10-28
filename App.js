@@ -5,8 +5,9 @@ import { View } from "react-native";
 export default function App() {
   return (
     <View style={{ backgroundColor: '#fff',  flex: 1,
-     flexDirection: "column", //horizontal
-     justifyContent: "space-evenly" // main 
+     flexDirection: "row", //primary axis - horizontal
+     justifyContent: "center", //primary axis (center)
+     alignItems:"flex-end" //secondary axis - vertical 
      }}
      > 
 
@@ -20,13 +21,13 @@ export default function App() {
       style={{
         backgroundColor: 'gold', 
         width: 100, 
-        height: 100, }}
+        height: 200, }}
         />
           <View 
       style={{
         backgroundColor: 'tomato', 
         width: 100, 
-        height: 100, }}
+        height: 300, }}
         />
     </View>
   );
