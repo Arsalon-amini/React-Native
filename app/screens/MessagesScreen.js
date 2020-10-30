@@ -23,6 +23,7 @@ const initialMessages = [
 
 function MessagesScreen(props) {
     const [messages, setMessages ] = useState(initialMessages); //give initial state, pick messages(variable) and setMessages(fn updating messages) from array returned 
+    const [refreshing, setRefreshing] = useState(false);
 
     const handleDelete = message => {
         const newMessages = messages.filter(m => m.id !== message.id );
@@ -44,6 +45,15 @@ function MessagesScreen(props) {
             <ListItemDeleteAction onPress={() => handleDelete(item)}/>}
             />}
              ItemSeparatorComponent={ListItemSeparator} //second prop to FlatList component
+             refreshing={refreshing} //bind prop to our state variable
+             onRefresh={() => setMessages([
+                {
+                    id: 2,
+                    title: "T2",
+                    description: "D2",
+                    image: require("../assets/headshot.jpg"),
+                  },
+             ])}
             />
         </Screen>
     );
