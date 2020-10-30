@@ -5,7 +5,6 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 
 
 export default function App() {
-  console.log('app executed');
   return (
     <MessagesScreen />
   )

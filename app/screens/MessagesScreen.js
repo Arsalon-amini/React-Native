@@ -1,7 +1,8 @@
 import React from 'react';
-import { FlatList, SafeAreaView, StyleSheet, Platform, StatusBar } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
 import ListItem from '../components/ListItem';
+import Screen from '../components/Screen'; 
 
 const messages = 
 [
@@ -21,7 +22,7 @@ const messages =
 
 function MessagesScreen(props) {
     return (
-        <SafeAreaView style={styles.screen}>
+        <Screen style={styles.screen}>
             <FlatList 
             data={messages}
             keyExtractor={ message => message.id.toString() } //fn that extracts a unique identifier from each item in our input data
@@ -32,14 +33,12 @@ function MessagesScreen(props) {
             image={item.image}
              />}
             />
-        </SafeAreaView>
+        </Screen>
     );
 }
 
 const styles = StyleSheet.create({
-    screen: {
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
-    }
+
 })
 
 export default MessagesScreen;
