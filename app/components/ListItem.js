@@ -1,11 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, TouchableHighlight } from 'react-native';
 
 import AppText from './AppText';
 import colors from '../config/colors'; 
 
 const ListItem = ({title, subTitle, image}) => {
     return ( 
+        <TouchableHighlight 
+        underlayColor={colors.light} 
+        onPress={() => console.log() }>
         <View style={styles.container}>
         <Image source={image} style={styles.image} />
         <View>
@@ -13,6 +16,7 @@ const ListItem = ({title, subTitle, image}) => {
             <AppText style={styles.subTitle}>{subTitle}</AppText>
         </View>
         </View>
+        </TouchableHighlight>
      );
 }
 const styles = StyleSheet.create({
