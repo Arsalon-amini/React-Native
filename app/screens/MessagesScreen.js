@@ -1,7 +1,8 @@
 import React from 'react';
-import { FlatList, StyleSheet} from 'react-native';
+import { FlatList, StyleSheet, View} from 'react-native';
 
 import ListItem from '../components/ListItem';
+import ListItemDeleteAction from '../components/ListItemDeleteAction';
 import ListItemSeparator from '../components/ListItemSeparator';
 import Screen from '../components/Screen'; 
 
@@ -33,15 +34,16 @@ function MessagesScreen(props) {
             subTitle={item.description}
             image={item.image}
             onPress={() => console.log('message clicked', item)}
-             />}
-             ItemSeparatorComponent={ListItemSeparator}
+            renderRightActions={ListItemDeleteAction}
+            />}
+             ItemSeparatorComponent={ListItemSeparator} //second prop to FlatList component
             />
         </Screen>
     );
 }
 
 const styles = StyleSheet.create({
-
+    
 })
 
 export default MessagesScreen;
