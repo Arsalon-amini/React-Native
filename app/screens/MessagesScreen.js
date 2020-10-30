@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FlatList, StyleSheet, View} from 'react-native';
 
 import ListItem from '../components/ListItem';
@@ -6,23 +6,29 @@ import ListItemDeleteAction from '../components/ListItemDeleteAction';
 import ListItemSeparator from '../components/ListItemSeparator';
 import Screen from '../components/Screen'; 
 
-const messages = 
-[
+const initialMessages = [
     {
-        id: 1,
-        title: 'T1',
-        description: 'D1',
-        image: require('../assets/headshot.jpg') //in real APP, will call API to get messages (dummy data)
+      id: 1,
+      title: "T1",
+      description: "D1",
+      image: require("../assets/headshot.jpg"),
     },
     {
-        id: 2,
-        title: 'T2',
-        description: 'D2',
-        image: require('../assets/headshot.jpg')
-    }
-]
+      id: 2,
+      title: "T2",
+      description: "D2",
+      image: require("../assets/headshot.jpg"),
+    },
+  ];
 
 function MessagesScreen(props) {
+    const [messages, setMessages ] = useState(initialMessages); //give initial state, pick messages(variable) and setMessages(fn updating messages) from array returned 
+
+    const handleDelete = message => {
+        const newMessages = messages.filter(m => m.id !== message.id );
+        setMessages(newMessages); 
+    }
+
     return (
         <Screen style={styles.screen}>
             <FlatList 
@@ -34,7 +40,8 @@ function MessagesScreen(props) {
             subTitle={item.description}
             image={item.image}
             onPress={() => console.log('message clicked', item)}
-            renderRightActions={ListItemDeleteAction}
+            renderRightActions={() => 
+            <ListItemDeleteAction onPress={() => handleDelete(item)}/>}
             />}
              ItemSeparatorComponent={ListItemSeparator} //second prop to FlatList component
             />
