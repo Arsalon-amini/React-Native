@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <Screen> 
-      <AppTextInput placeholder="Username" icon="email" />
+      <AppTextInput secureTextEntry={true} placeholder="Username" icon="email" maxLength={10} />
     </Screen>
   )
 }
