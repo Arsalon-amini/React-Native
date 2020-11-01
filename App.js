@@ -9,25 +9,14 @@ import Screen from './app/components/Screen';
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import { TextInput, Text } from 'react-native';
+import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
   const [firstName, setFirstName ] = useState(''); 
 
   return (
     <Screen> 
-      <Text>{firstName}</Text>
-      <TextInput 
-      secureTextEntry={true}
-      clearButtonMode='always'
-      keyboardType="numeric"
-      maxLength={5}
-      onChangeText={text => setFirstName(text)}
-      placeholder="First Name"
-      style={{
-        borderBottomColor: '#ccc',
-        borderBottomWidth: 1,
-      }}
-      />
+      <AppTextInput placeholder="Username" icon="email" />
     </Screen>
   )
 }
