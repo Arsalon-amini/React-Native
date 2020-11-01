@@ -8,15 +8,16 @@ import Icon from './app/components/Icon';
 import Screen from './app/components/Screen'; 
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
-import { TextInput, Text } from 'react-native';
 import AppTextInput from "./app/components/AppTextInput";
 
+import { Switch } from 'react-native';
+
 export default function App() {
-  const [firstName, setFirstName ] = useState(''); 
+  const [isNew, setIsNew ] = useState(false); 
 
   return (
     <Screen> 
-      <AppTextInput secureTextEntry={true} placeholder="Username" icon="email" maxLength={10} />
+      <Switch value={isNew} onValueChange={newValue => setIsNew(newValue)} />
     </Screen>
   )
 }
