@@ -1,12 +1,14 @@
 import React from 'react'; //rsf - react-stateless-functional-component
 import Constants from 'expo-constants';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 
 
 function Screen({ children, style }) {
     return (
         <SafeAreaView style={[styles.screen, style]}>
+            <View style={style}> 
             {children}
+            </View>
              </SafeAreaView>
     );
 }

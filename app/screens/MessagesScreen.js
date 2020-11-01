@@ -49,8 +49,14 @@ function MessagesScreen(props) {
              onRefresh={() => setMessages([
                 {
                     id: 2,
-                    title: "T2",
-                    description: "D2",
+                    title: "Title #2",
+                    description: "Return policy question",
+                    image: require("../assets/headshot.jpg"),
+                  },
+                  {
+                    id: 1,
+                    title: "Title #1",
+                    description: "Item Inquiry",
                     image: require("../assets/headshot.jpg"),
                   },
              ])}
