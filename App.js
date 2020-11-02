@@ -18,8 +18,12 @@ import AppTextInput from "./app/components/AppTextInput";
 export default function App() {
   return (
     <Screen> 
-      <AppPicker icon="apps" placeholder="Catagory" />
-      <AppTextInput  icon="email" placeholder="Email"/>
+      <AppPicker 
+      icon="apps" placeholder="Catagory" 
+      />
+      <AppTextInput  
+      icon="email" placeholder="Email"
+      />
     </Screen>
   )
 }
