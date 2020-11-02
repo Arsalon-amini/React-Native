@@ -1,1 +1,5 @@
-node_modules
+.expo-shared/
+.expo/
+.vscode/
+node_modules/
+package-lock.json
