@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import AppPicker from "./app/components/AppPicker";
 import AppTextInput from "./app/components/AppTextInput";
@@ -11,9 +11,12 @@ const categories = [
 ]
 
 export default function App() {
+  const [category, setCategory ] = useState();
   return (
     <Screen> 
       <AppPicker 
+      selectedItem={category}
+      onSelectItem={item => setCategory(item)}
       icon="apps" placeholder="Catagory" 
       items={categories}
       />
