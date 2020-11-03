@@ -27,7 +27,7 @@ function LoginScreen(props) {
                 keyboardType='email-address'
                 name='email'
                 placeholder="Email"
-                textContentTye="emailAddress" 
+                textContentType="emailAddress" 
             />
             <AppFormField
                 autoCapitalize="none"
