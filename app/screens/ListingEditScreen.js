@@ -45,7 +45,8 @@ function ListingEditScreen(props) {
           keyboardType="numeric"
           maxLength={8}
           name="price"
-          placeholder="price"
+          placeholder="Price"
+          width={120}
         />
         <Picker items={categories} name="category" placeholder="Category" />
         <FormField
