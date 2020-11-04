@@ -1,6 +1,7 @@
 import React from 'react';
-import { Image, ImageBackground, StyleSheet, View, Text } from 'react-native';
-import AppButton from '../components/AppButton';
+import { Image, ImageBackground, StyleSheet, View} from 'react-native';
+import Button from '../components/Button';
+import Text from '../components/Text'; 
 
 function WelcomeScreen(props) {
     return (
@@ -14,11 +15,9 @@ function WelcomeScreen(props) {
                 <Text style={styles.tagLine}> Sell What You Don't Need </Text>
             </View>
             <View style={styles.buttonsContainer}>
-            <AppButton title="login" onPress={()=>console.log('button press')}/>
-            <AppButton title="register" color="secondary" onPress={()=>console.log('button press')}/>
+            <Button title="login" onPress={()=>console.log('button press')}/>
+            <Button title="register" color="secondary" onPress={()=>console.log('button press')}/>
             </View>
-           
-           
         </ImageBackground>
     );
 }

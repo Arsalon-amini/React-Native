@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Modal, Button, FlatList } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
-import AppText from './AppText'; 
+import Text from './Text'; 
 import defaultStyles from '../config/styles'; 
-import Screen from '../components/Screen'; 
+import Screen from './Screen'; 
 import PickerItem from './PickerItem'; 
 
 function AppPicker({ icon, items, numberOfColumns = 1, onSelectItem, placeholder, selectedItem, PickerItemComponent = PickerItem, width='100%' }) {
@@ -20,9 +20,9 @@ function AppPicker({ icon, items, numberOfColumns = 1, onSelectItem, placeholder
                         style={styles.icon} />}
                 
                 {selectedItem ? (
-                    <AppText style={styles.text}>{selectedItem.label}</AppText>
+                    <Text style={styles.text}>{selectedItem.label}</Text>
                         ) : (
-                    <AppText style={styles.placeholder}>{placeholder}</AppText>
+                    <Text style={styles.placeholder}>{placeholder}</Text>
                     )}
                 <MaterialCommunityIcons 
                     name="chevron-down" 

@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 
 import colors from '../config/colors'; 
-import AppText from './AppText';
+import Text from './Text';
 
 const Card = ({title, subTitle, image}) => {
 return ( 
     <View style={styles.card}>
         <Image style={styles.image} source ={image} />
         <View style={styles.detailsContainer}>
-        <AppText style={styles.title} numberOfLines={1}>{title}</AppText>
-        <AppText style={styles.subTitle} numberOfLines={1} >{subTitle}</AppText>
+        <Text style={styles.title} numberOfLines={1}>{title}</Text>
+        <Text style={styles.subTitle} numberOfLines={1} >{subTitle}</Text>
         </View>
     </View>
      );
