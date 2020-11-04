@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 
 import AppText from './AppText'; 
+import colors from '../config/colors';
 
 function PickerItem( {label, onPress } ) {
     return (
