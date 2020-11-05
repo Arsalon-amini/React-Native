@@ -1,31 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import FormImagePicker from './app/components/forms/FormImagePicker';
 
-import Screen from './app/components/Screen';
-import ImageInput from './app/components/ImageInput'
-import ImageInputList from './app/components/ImageInputList';
+import ListingEditScreen from './app/screens/ListingEditScreen';
 
 
 export default function App() {
-  const [imageUris, setImageUris] = useState([]); 
-  
-  const handleAdd = uri => {
-    setImageUris([...imageUris, uri]); 
-  }
-
-  const handleRemove = uri => {
-    setImageUris(imageUris.filter(imageUri => 
-      imageUri !== uri))
-  }
-
   return (
-    <Screen>
-      <ImageInputList 
-      imageUris={imageUris} 
-      onAddImage={handleAdd}
-      onRemoveImage={handleRemove}      
-      />
-
-    </Screen>
+      <ListingEditScreen />
   )
 }
 
