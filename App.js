@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import * as ImagePicker from 'expo-image-picker'; 
+import * as Permissions from 'expo-permissions'; 
 
 import Screen from './app/components/Screen';
 
 
 export default function App() {
   const requestPermission = async() => {
-    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
-    if(!granted)
+    const result = Permissions.askAsync(Permissions.CAMERA_ROLL, Permissions.LOCATION)
+    if(!result.granted)
       alert("You need to enable permissions to access library")
   }
 
@@ -16,7 +17,7 @@ export default function App() {
   }, [])
 
   return (
-      <Screen> </Screen>
+      <Screen></Screen>
   )
 }
 
