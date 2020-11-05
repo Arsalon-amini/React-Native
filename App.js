@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import * as ImagePicker from 'expo-image-picker'; 
+import React, { useState } from 'react';
 
 import Screen from './app/components/Screen';
-import { Button, Image } from 'react-native';
 import ImageInput from './app/components/ImageInput'
+import ImageInputList from './app/components/ImageInputList';
 
 
 export default function App() {
-  const [imageUri, setImageUri] = useState(); 
-
-  const selectImage = async () => {
-      try {
-          const result = await ImagePicker.launchImageLibraryAsync(); 
-          if(!result.cancelled)
-              setImageUri(result.uri);  
-      } catch (error) {
-          console.log('Error reading an Image'); 
-      }
+  const [imageUris, setImageUris] = useState([]); 
+  
+  const handleAdd = uri => {
+    setImageUris([...imageUris, uri]); 
   }
+
+  const handleRemove = uri => {
+    setImageUris(imageUris.filter(imageUri => 
+      imageUri !== uri))
+  }
+
   return (
     <Screen>
-      <ImageInput 
-      imageUri={imageUri} 
-      onChangeImage={uri => setImageUri(uri)}
+      <ImageInputList 
+      imageUris={imageUris} 
+      onAddImage={handleAdd}
+      onRemoveImage={handleRemove}      
       />
+
     </Screen>
   )
 }
