@@ -9,15 +9,6 @@ import ImageInput from './app/components/ImageInput'
 export default function App() {
   const [imageUri, setImageUri] = useState(); 
 
-  const requestPermissions = async() => {
-      const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
-      if(!granted)
-          alert("You need to enable permissions to access photo library") 
-  }
-  useEffect(() => {
-      requestPermissions(); 
-  }, [])
-
   const selectImage = async () => {
       try {
           const result = await ImagePicker.launchImageLibraryAsync(); 
@@ -29,8 +20,10 @@ export default function App() {
   }
   return (
     <Screen>
-      <Button title="select image" onPress={selectImage} />
-      <ImageInput imageUri={imageUri} />
+      <ImageInput 
+      imageUri={imageUri} 
+      onChangeImage={uri => setImageUri(uri)}
+      />
     </Screen>
   )
 }
