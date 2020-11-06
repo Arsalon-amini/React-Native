@@ -1,5 +1,5 @@
 import React from 'react';
-import FormImagePicker from './app/components/forms/FormImagePicker';
+import Picker from './app/components/Picker';
 
 import ListingEditScreen from './app/screens/ListingEditScreen';
 
