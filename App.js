@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, Button } from 'react-native'; 
-import { createStackNavigator } from '@react-navigation/stack'; 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'; 
 import { NavigationContainer, useNavigation } from '@react-navigation/native'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 import Screen from './app/components/Screen'; 
 
@@ -21,17 +21,24 @@ const Tweets = ( { navigation }) => (
     <Text>Tweets</Text>
   </Screen>
 );
-
 const TweetDetails = ({ route }) => (
   <Screen>
         <Text>Tweet Details {route.params.id} </Text>
       </Screen>
 )
-
 const Account = () => <Screen><Text>Account</Text></Screen>
+
 const Tab = createBottomTabNavigator();
+
 const TabNavigator = () => (
-  <Tab.Navigator>
+  <Tab.Navigator
+      tabBarOptions={{
+        activeBackgroundColor: "tomato",
+        activeTintColor: 'white',
+        inactiveBackgroundColor: '#eee',
+        inactiveTintColor: 'black'
+      }}
+  >
     <Tab.Screen name="Feed" component={Tweets} />
     <Tab.Screen name="Account" component={Account} />
   </Tab.Navigator>
