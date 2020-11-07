@@ -34,7 +34,12 @@ const TweetDetails = ({ route }) => (
 
 const Stack = createStackNavigator();  //has navigator/screen (routes) properties act like components 
 const StackNavigator = () => (
-  <Stack.Navigator initialRouteName="Tweets">
+  <Stack.Navigator 
+      screenOptions= {{
+        headerStyle: { backgroundColor: "dodgerblue"},
+        headerTintColor: "white",
+      }}
+  >
     <Stack.Screen name="Tweets" component={Tweets}/> 
     <Stack.Screen
       name="TweetDetails"
@@ -43,7 +48,7 @@ const StackNavigator = () => (
         {
           headerStyle: { backgroundColor: "tomato"},
           headerTintColor: "white",
-          headerShown: false
+          
         }
       }
       /> 
