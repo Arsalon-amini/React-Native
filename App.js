@@ -39,7 +39,13 @@ const TabNavigator = () => (
         inactiveTintColor: 'black'
       }}
   >
-    <Tab.Screen name="Feed" component={Tweets} />
+    <Tab.Screen
+      name="Feed" 
+      component={Tweets}
+      options={{
+        tabBarIcon: ( { size, color }) => <MaterialCommunityIcons name="home" size={size} color={color}/>
+      }}
+      />
     <Tab.Screen name="Account" component={Account} />
   </Tab.Navigator>
 )
