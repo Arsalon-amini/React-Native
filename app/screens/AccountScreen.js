@@ -17,17 +17,17 @@ const menuItems = [
         }
     },
     {    
-        title: "My Mesasages",
+        title: "My Messages",
         icon: {
             name: "email",
             backgroundColor: colors.secondary
         },
-  
+        targetScreen: 'Messages'
     }
 ]
 
 
-function AccountScreen(props) {
+function AccountScreen({ navigation }) {
     return (
         <Screen style={styles.screen}>
             <View style={styles.container}>
@@ -39,16 +39,18 @@ function AccountScreen(props) {
             </View>
             <View style={styles.container}>
                 <FlatList 
-                data={menuItems}
-                keyExtractor={menuItem => menuItem.title}
-                ItemSeparatorComponent={ListItemSeparator}
-                renderItem={({ item }) => 
-                <ListItem 
-                title={item.title} 
-                IconComponent={
-                    <Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor}/>
-                }
-                /> }
+                    data={menuItems}
+                    keyExtractor={menuItem => menuItem.title}
+                    ItemSeparatorComponent={ListItemSeparator}
+                    renderItem={({ item }) => 
+                        <ListItem 
+                        title={item.title} 
+                        IconComponent={
+                            <Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor}/>
+                        }
+                        onPress={() => navigation.navigate(item.targetScreen)}
+                        /> }
+                    
                 />
             </View>
             <ListItem 
