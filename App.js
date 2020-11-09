@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Screen from './app/components/Screen'; 
 import navigationTheme from './app/navigation/navigationTheme';
 import AppNavigator from './app/navigation/AppNavigator';
+import AuthNavigator from './app/navigation/AuthNavigator';
 
 const Link = () => {
   const navigation = useNavigation(); //get access to navigation object
@@ -75,7 +76,7 @@ const TabNavigator = () => (
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme} >
-      <AppNavigator /> 
+      <AuthNavigator/> 
     </NavigationContainer>
   )
 }
