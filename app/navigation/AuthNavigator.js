@@ -5,6 +5,7 @@ import React from 'react';
 import LoginScreen from '../screens/LoginScreen'; 
 import RegisterScreen from '../screens/RegisterScreen'; 
 import WelcomeScreen from '../screens/WelcomeScreen'; 
+import colors from '../config/colors';
 
 const Stack = createStackNavigator();
 
@@ -19,10 +20,16 @@ const AuthNavigator = () => (
          name="Login" 
          component={LoginScreen} 
          options={ {
-             headerStyle: { backgroundColor: 'yellow'}
+             headerStyle: { backgroundColor: colors.white }
          }}
          />
-        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen 
+        name="Register" 
+        component={RegisterScreen} 
+        options={ {
+            headerStyle: { backgroundColor: colors.white }
+        }}
+        />
     </Stack.Navigator>
 )
 
