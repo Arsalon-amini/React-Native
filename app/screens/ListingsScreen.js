@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'; 
 import { FlatList, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react'; 
 
+import AppText from '../components/Text'; 
+import Button from '../components/Button'; 
 import Card from '../components/Card';
 import colors from '../config/colors';
 import listingsAPI from '../api/listings'; 
@@ -10,18 +12,28 @@ import Screen from '../components/Screen';
 
 const ListingsScreen = ({ navigation }) => {
    const [listings, setListings] = useState([]); //create state variable to store data from server
+   const [error, setError] = useState(false); 
 
    useEffect(() => {
        loadListings();
    }, []); //call api once 1st time component rendered 
 
    const loadListings = async () => {
-       const { data } = await listingsAPI.getListings(); 
-       setListings(data); 
+       const response = await listingsAPI.getListings(); 
+       if(!response.ok) return setError(true);
+       
+       setError(false);
+       setListings(response.data); 
    }
 
     return ( 
         <Screen style={styles.screen}> 
+        { error && 
+            <>
+            <AppText> Couldn't retrieve the listings. </AppText>
+            <Button title="Retry" onPress={loadListings} />
+            </>
+        }
             <FlatList 
             data={listings}
             keyExtractor={listing => listing.id.toString()}
