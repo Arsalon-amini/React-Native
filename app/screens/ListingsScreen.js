@@ -21,7 +21,7 @@ const ListingsScreen = ({ navigation }) => {
     } = useApi(listingsApi.getListings) //get request to endpoint
    
    useEffect(() => {
-       loadListings();
+       loadListings(1, 2, 3);
    }, []); 
 
     return ( 
