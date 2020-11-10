@@ -3,6 +3,8 @@ import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 import useLocation from "../hooks/useLocation";
 
+import listingsApi from '../api/listings'; 
+
 import {
   Form,
   FormField,
@@ -36,6 +38,12 @@ const categories = [
 function ListingEditScreen() {
   const location = useLocation(); 
 
+  const handleSubmit = async (listing) => {
+    const result = await listingsApi.addListing({...listing, location }); //location prop doesn't come from formik form, comes from hook, spread + add 
+    if(!result.ok) return alert('Could not save the listing. '); 
+    alert ('Success'); 
+  }
+
   return (
     <Screen style={styles.container}>
       <Form
@@ -46,7 +54,7 @@ function ListingEditScreen() {
           category: null,
           images: []
         }}
-        onSubmit={(values) => console.log(location)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images"/>

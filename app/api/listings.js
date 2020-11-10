@@ -4,11 +4,11 @@ const endpoint = '/listings';
 
 const getListings = () => client.get(endpoint);
 
-const addListing = () => {
+const addListing = (listing) => {
     const data = new FormData(); //apisauce/axios will set content type header from application/json to multipart/form-data when calling server (send images, etc.)
     data.append('title', listing.title);  //create key-value pairs in obj
     data.append('price', listing.price); 
-    data.append('categoryId', listing.catagory.value); 
+    data.append('categoryId', listing.category.value); 
     data.append('description', listing.description); 
 
     listing.images.forEach((image, index) => 
@@ -26,4 +26,5 @@ const addListing = () => {
 
 export default { 
     getListings,
+    addListing
 }
