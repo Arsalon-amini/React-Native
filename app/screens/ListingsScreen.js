@@ -1,7 +1,8 @@
-import { ActivityIndicator, FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import React, { useEffect, useState } from 'react'; 
 
 import AppText from '../components/Text'; 
+import ActivityIndicator from '../components/ActivityIndicator'; 
 import Button from '../components/Button'; 
 import Card from '../components/Card';
 import colors from '../config/colors';
@@ -39,8 +40,8 @@ const ListingsScreen = ({ navigation }) => {
             <Button title="Retry" onPress={loadListings} />
             </>
         }
-        <ActivityIndicator animating={true} size={30}/>
-            <FlatList 
+        <ActivityIndicator visible={true} />
+            {/* <FlatList 
             data={listings}
             keyExtractor={listing => listing.id.toString()}
             renderItem={({ item }) => 
@@ -52,7 +53,7 @@ const ListingsScreen = ({ navigation }) => {
                         ()=> navigation.navigate(routes.LISTING_DETAILS, item) 
                     }
                 />}
-            />
+            /> */}
         </Screen>
      );
 }
