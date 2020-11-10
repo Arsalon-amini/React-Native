@@ -1,27 +1,25 @@
-import React, { useState } from 'react'; 
+import React, { useEffect, useState } from 'react'; 
 import { FlatList, StyleSheet } from 'react-native';
 
 import Card from '../components/Card';
-import Colors from '../config/colors';
+import colors from '../config/colors';
+import listingsAPI from '../api/listings'; 
 import routes from '../navigation/routes'; 
 import Screen from '../components/Screen';
 
-const listings = [
-    {
-        id: 1,
-        title: "red jacket for sale",
-        price: 100,
-        image: require('../assets/jacket.jpg')
-    },
-    {
-        id: 2,
-        title: "Couch for sale",
-        price: 1000,
-        image: require('../assets/couch.jpg')
-    }
-]
 
 const ListingsScreen = ({ navigation }) => {
+   const [listings, setListings] = useState([]); //create state variable to store data from server
+
+   useEffect(() => {
+       loadListings();
+   }, []); //call api once 1st time component rendered 
+
+   const loadListings = async () => {
+       const { data } = await listingsAPI.getListings(); 
+       setListings(data); 
+   }
+
     return ( 
         <Screen style={styles.screen}> 
             <FlatList 
@@ -31,7 +29,7 @@ const ListingsScreen = ({ navigation }) => {
                 <Card 
                     title={item.title}
                     subTitle={"$" + item.price}
-                    image={item.image}
+                    imageUrl={item.images[0].url}
                     onPress={
                         ()=> navigation.navigate(routes.LISTING_DETAILS, item) 
                     }
@@ -44,7 +42,7 @@ const ListingsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     screen: {
         padding: 20,
-        backgroundColor: Colors.light
+        backgroundColor: colors.light
     }
 })
  
