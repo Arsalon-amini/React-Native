@@ -6,31 +6,23 @@ import ActivityIndicator from '../components/ActivityIndicator';
 import Button from '../components/Button'; 
 import Card from '../components/Card';
 import colors from '../config/colors';
-import listingsAPI from '../api/listings'; 
+import listingsApi from '../api/listings'; 
 import routes from '../navigation/routes'; 
 import Screen from '../components/Screen';
+import useApi from '../hooks/useApi';
 
 
 const ListingsScreen = ({ navigation }) => {
-   const [listings, setListings] = useState([]); //create state variable to store data from server
-   const [error, setError] = useState(false); 
-   const [loading, setLoading ] = useState(false); 
-
-
+   const {
+       data: listings, 
+       error, 
+       loading, 
+       request: loadListings 
+    } = useApi(listingsApi.getListings) //get request to endpoint
+   
    useEffect(() => {
        loadListings();
-   }, []); //call api once 1st time component rendered 
-
-   const loadListings = async () => {
-       setLoading(true); 
-       const response = await listingsAPI.getListings(); 
-       setLoading(false); 
-
-       if(!response.ok) return setError(true);
-       
-       setError(false);
-       setListings(response.data); 
-   }
+   }, []); 
 
     return ( 
         <Screen style={styles.screen}> 
