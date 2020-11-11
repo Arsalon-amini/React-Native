@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 import useLocation from "../hooks/useLocation";
-
 import listingsApi from '../api/listings'; 
 
 import {
@@ -39,7 +38,10 @@ function ListingEditScreen() {
   const location = useLocation(); 
 
   const handleSubmit = async (listing) => {
-    const result = await listingsApi.addListing({...listing, location }); //location prop doesn't come from formik form, comes from hook, spread + add 
+    const result = await listingsApi.addListing(
+        {...listing, location }, 
+        progress => console.log(progress) 
+      ); 
     if(!result.ok) return alert('Could not save the listing. '); 
     alert ('Success'); 
   }
