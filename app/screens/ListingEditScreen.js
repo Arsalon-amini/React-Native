@@ -13,6 +13,7 @@ import {
 import FormImagePicker from "../components/forms/FormImagePicker";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import Screen from "../components/Screen";
+import UploadScreen from "./UploadScreen";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -36,18 +37,24 @@ const categories = [
 
 function ListingEditScreen() {
   const location = useLocation(); 
+  const [uploadVisible, setUploadVisible] = useState(false); 
+  const [progress, setProgress] = useState(0); 
 
   const handleSubmit = async (listing) => {
+    setUploadVisible(true); 
     const result = await listingsApi.addListing(
         {...listing, location }, 
-        progress => console.log(progress) 
+        progress => setProgress(progress)
       ); 
+      setUploadVisible(false); 
+      
     if(!result.ok) return alert('Could not save the listing. '); 
     alert ('Success'); 
   }
 
   return (
     <Screen style={styles.container}>
+      <UploadScreen progress={progress} visible={uploadVisible}></UploadScreen>
       <Form
         initialValues={{
           title: "",
