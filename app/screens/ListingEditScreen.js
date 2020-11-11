@@ -47,14 +47,14 @@ function ListingEditScreen() {
         progress => setProgress(progress)
       ); 
       setUploadVisible(false); 
-      
+
     if(!result.ok) return alert('Could not save the listing. '); 
     alert ('Success'); 
   }
 
   return (
     <Screen style={styles.container}>
-      <UploadScreen progress={progress} visible={uploadVisible}></UploadScreen>
+      <UploadScreen progress={progress} visible={uploadVisible}/>
       <Form
         initialValues={{
           title: "",
