@@ -1,15 +1,13 @@
 import React from 'react';
-import NetInfo from '@react-native-community/netinfo';
+import NetInfo, { useNetInfo }  from '@react-native-community/netinfo';
+import { Button, View } from 'react-native';
 
 export default function App() {
+  const netInfo = useNetInfo(); //complexity hidden (subscribing and unsubscribing)
 
-  //call in ComponentDidMount
-    const unsubscribe = NetInfo.addEventListener(netInfo => console.log(netInfo)); //called everytime a change in network 
 
-  //call in Component will unMount 
-  unsubscribe(); 
   return (
-    null
+    <Button disabled={!netInfo.isInternetReachable} />
   )
 }
 
