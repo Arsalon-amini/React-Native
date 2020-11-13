@@ -30,17 +30,17 @@ const get = async (key) => {
 
         if(!item) return null; //item doesn't exist in cache
 
-        if (isExpired){
+        if (isExpired(item)){
             await AsyncStorage.removeItem(prefix + key); //clean cache
             return null; 
         }
-
+        return item.value;
+        
     } catch (error) {
         console.log(error); 
     }
 }
 
-return item.value;
 
 
 export default {
