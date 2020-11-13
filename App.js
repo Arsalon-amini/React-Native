@@ -1,13 +1,25 @@
 import React from 'react';
-import NetInfo, { useNetInfo }  from '@react-native-community/netinfo';
-import { Button, View } from 'react-native';
+import { AsyncStorage } from 'react-native'; 
 
 export default function App() {
-  const netInfo = useNetInfo(); //complexity hidden (subscribing and unsubscribing)
 
+  const demo = async () => {
+    try {
+      await AsyncStorage.setItem('person', JSON.stringify({ id: 1})); //storge string value
+      const value = AsyncStorage.getItem('person'); //returns string 
+      const person = JSON.parse(value); //get actual person obj
 
+      console.log(person); 
+  
+    } catch (error) {
+      console.log(error); //log to sentry in real app
+    }
+     
+  }
+
+  demo(); 
   return (
-    <Button disabled={!netInfo.isInternetReachable} />
+   null
   )
 }
 
