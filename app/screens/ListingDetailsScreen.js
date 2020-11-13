@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
-import AppText from '../components/Text'; 
+import Text from '../components/Text'; 
 import colors from '../config/colors'; 
 import ListItem from '../components/lists/ListItem';
 
@@ -9,18 +9,23 @@ const ListingDetailsScreen = ({ route }) => {
     const listing = route.params; 
 
     return ( 
-    <View style={styles.detailsContainer}>
-        <Image style={styles.image} source={listing.image}/>
-        <AppText style={styles.title}> {listing.title} </AppText>
-        <AppText style={styles.price}> ${listing.price} </AppText>
-        <View style={styles.userContainer}>
-            <ListItem 
-                image={require("../assets/headshot.jpg")}
-                title="Arsalon A."
-                subTitle="8 listings"
-            />
-        </View> 
+    <View>
+        <Image 
+        style={styles.image}
+        source={{uri: listing.images[0].url}}
+        />
+     <View style={styles.detailsContainer}>
+        <Text style={styles.title}> {listing.title} </Text>
+        <Text style={styles.price}> ${listing.price} </Text>
+            <View style={styles.userContainer}>
+                <ListItem 
+                    image={require("../assets/headshot.jpg")}
+                    title="Arsalon A."
+                    subTitle="8 listings"
+                />
+            </View> 
         </View>
+    </View>
     );
 }
 
