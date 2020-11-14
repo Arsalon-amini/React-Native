@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
 
 import ListItem from '../components/lists/ListItem';
@@ -6,8 +6,8 @@ import Icon from '../components/Icon';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 import ListItemSeparator from '../components/lists/ListItemSeparator';
-import AuthContext from '../auth/context';
 import authStorage from '../auth/storage';
+import useAuth from '../auth/useAuth';
 
 //won't be re-rendered every time component is rendered
 const menuItems = [
@@ -29,11 +29,10 @@ const menuItems = [
 ]
 
 function AccountScreen({ navigation }) {
-    const { user, setUser } = useContext(AuthContext); 
+    const { user, logOut } = useAuth(); 
 
     const handleLogOut = () => {
-        setUser(null); 
-        authStorage.removeToken(); 
+        logOut(); 
     }
 
     return (
