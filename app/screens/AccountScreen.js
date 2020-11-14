@@ -28,15 +28,15 @@ const menuItems = [
 ]
 
 function AccountScreen({ navigation }) {
-    const { user } = useContext(AuthContext); 
+    const { user, setUser } = useContext(AuthContext); 
 
     return (
         <Screen style={styles.screen}>
             <View style={styles.container}>
             <ListItem 
-            title={user.name}
-            subTitle={user.email}
-            image={require('../assets/headshot.jpg')}
+                title={user.name}
+                subTitle={user.email}
+                image={require('../assets/headshot.jpg')}
             />
             </View>
             <View style={styles.container}>
@@ -56,10 +56,9 @@ function AccountScreen({ navigation }) {
                 />
             </View>
             <ListItem 
-            title="Log out"
-            ImageComponent={
-                <Icon name="logout" backgroundColor="#ffe66d" />
-            }
+                title="Log out"
+                ImageComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+                onPress={() => setUser(null)}
             />
             </Screen>
     );
