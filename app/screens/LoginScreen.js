@@ -7,6 +7,7 @@ import Screen from '../components/Screen';
 import { ErrorMessage, Form, FormField, SubmitButton } from '../components/forms'; 
 import authApi from '../api/auth'; 
 import AuthContext from '../auth/context';
+import authStorage from '../auth/storage';
 
 
 const validationSchema = Yup.object().shape({
@@ -24,6 +25,7 @@ function LoginScreen(props) {
         setLoginFailed(false); 
         const user = jwtDecode(result.data); 
         authContext.setUser(user); //update user using setUser passed in context
+        authStorage.storeToken(result.data); //store token after logging in
     }
 
     return (
