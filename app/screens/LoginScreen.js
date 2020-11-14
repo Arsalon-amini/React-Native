@@ -18,10 +18,10 @@ function LoginScreen(props) {
     const [loginFailed, setLoginFailed] = useState(false);
 
     const handleSubmit = async ({email, password}) => {
-        const result = await authApi.login(email, password);
-        if(!result.ok) return setLoginFailed(true); //return immediately 
+        const result = await authApi.login(email, password); //api call
+        if(!result.ok) return setLoginFailed(true);
         setLoginFailed(false); 
-        logIn(result.data); 
+        logIn(result.data); //Context and Secure Storage (state management)
         
     }
 

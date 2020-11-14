@@ -6,16 +6,16 @@ import authStorage from './storage';
 
 
 export default useAuth = () => {
-    const { user, setUser } = useContext(AuthContext); //Context (virtual memory)
+    const { user, setUser } = useContext(AuthContext); //Context
 
     const logIn = (authToken) => { 
         const user = jwtDecode(authToken); 
-        setUser(user); //Context (virtual memory)
-        authStorage.storeToken(authToken);  //secureStorage (device memory)
+        setUser(user); 
+        authStorage.storeToken(authToken);  //secureStorage 
     }
     const logOut = () => { 
         setUser(null); 
-        authStorage.removeToken(); //secureStorage (device memory)
+        authStorage.removeToken(); //secureStorage 
     }
 
     return { user, logIn, logOut }; 
