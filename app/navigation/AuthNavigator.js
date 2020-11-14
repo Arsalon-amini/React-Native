@@ -20,7 +20,7 @@ const AuthNavigator = () => (
         <Stack.Screen
          name={routes.LOGIN}
          component={LoginScreen} 
-         options={ {
+         options={{
              headerStyle: { backgroundColor: colors.white }
          }}
          />
