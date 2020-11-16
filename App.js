@@ -16,10 +16,15 @@ import Screen from './app/components/Screen';
 export default function App() {
 
   const showNotification = () => {
-    Notifications.presentNotificationAsync({
-      title: 'Congratulations',
-      body: 'Your order was successfully placed'
-    })
+    Notifications.scheduleNotificationAsync({
+      content: {
+        title: 'Dont forget your order!'
+      },
+      trigger: {
+        seconds: 4,
+      },
+    });
+
 
   };
   return (
