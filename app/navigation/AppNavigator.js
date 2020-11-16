@@ -6,9 +6,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AccountNavigator from './AccountNavigator';
 import FeedNavigator from './FeedNavigator';
 import ListingEditScreen from '../screens/ListingEditScreen';
+import navigation from '../navigation/rootNavigation';
 import NewListingButton from './NewListingButton';
 import routes from '../navigation/routes';
 import useNotifications from '../hooks/useNotifications';
+
 
 
 const Tab = createBottomTabNavigator();

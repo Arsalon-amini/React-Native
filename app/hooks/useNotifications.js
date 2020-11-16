@@ -3,17 +3,15 @@ import * as Permissions from 'expo-permissions';
 import { useEffect } from 'react';
 
 import expoPushTokensApi from '../api/expoPushTokens';
-import navigation from '../navigation/rootNavigation';
-import routes from '../navigation/routes';
 
 
-export default useNotifications = () => {
+
+export default useNotifications = (notificationListener) => {
     useEffect(() => {
         registerForPushNotifications();
 
-        Notifications.addNotificationResponseReceivedListener(notification =>
-            navigation.navigate(routes.ACCOUNT)); //real app, inspect data prop of notification object -> send to various screens + additional parameters
-    }, []);
+        if(notificationListener) 
+            Notifications.addNotificationResponseReceivedListener(notificationListener)}, []);
 
     const registerForPushNotifications = async () => {
         try {
