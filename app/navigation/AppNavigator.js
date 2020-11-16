@@ -17,6 +17,8 @@ const AppNavigator = () => {
 
     useEffect(() => {
         registerForPushNotifications();
+
+        Notifications.addPushTokenListener(notification => console.log(notification));
     }, []);
 
     const registerForPushNotifications = async () => {
@@ -24,7 +26,7 @@ const AppNavigator = () => {
             const permission = await Permissions.askAsync(Permissions.NOTIFICATIONS)
             if (!permission.granted) return;
 
-            const token = await Notifications.getExpoPushTokenAsync();
+            const token = await Notifications.getExpoPushTokenAsync(); //identifies user device
             console.log(token);
             expoPushTokensApi.register(token);
         } catch (error) {
