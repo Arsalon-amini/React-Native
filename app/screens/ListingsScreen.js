@@ -21,7 +21,7 @@ const ListingsScreen = ({ navigation }) => {
 
     return ( 
         <>
-            <ActivityIndicator visible={getListingsApi.loading} />
+        <ActivityIndicator visible={getListingsApi.loading} />
         <Screen style={styles.screen}> 
         { getListingsApi.error && 
             <>
