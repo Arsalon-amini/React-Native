@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Notifications } from 'expo';
+import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
 
 import AccountNavigator from './AccountNavigator';
@@ -25,6 +25,7 @@ const AppNavigator = () => {
             if (!permission.granted) return;
 
             const token = await Notifications.getExpoPushTokenAsync();
+            console.log(token);
             expoPushTokensApi.register(token);
         } catch (error) {
             console.log("Error getting a push notification", error);
