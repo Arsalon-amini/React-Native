@@ -10,6 +10,7 @@ import FeedNavigator from './FeedNavigator';
 import ListingEditScreen from '../screens/ListingEditScreen';
 import NewListingButton from './NewListingButton';
 import routes from '../navigation/routes';
+import navigation from '../navigation/rootNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +19,8 @@ const AppNavigator = () => {
     useEffect(() => {
         registerForPushNotifications();
 
-        Notifications.addPushTokenListener(notification => console.log(notification));
+        Notifications.addNotificationResponseReceivedListener(notification =>
+            navigation.navigate(routes.ACCOUNT)); //real app, inspect data prop of notification object -> send to various screens + additional parameters
     }, []);
 
     const registerForPushNotifications = async () => {
