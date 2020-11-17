@@ -14,8 +14,6 @@ import logger from './app/utility/logger';
 logger.start(); //abstraction over bugsnag
 
 export default function App() {
-  logger.log(new Error('Test Error'));
-
   const [user, setUser] = useState();
   const [isReady, setIsReady] = useState(false);
 
